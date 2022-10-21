@@ -1,0 +1,107 @@
+.search__item {
+    display: flex;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.si__img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.si__desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 2;
+}
+
+.si__details {
+    flex: 1 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.si__title {
+    font-size: 20px;
+    color: var(--color-nav);
+}
+
+.si__distance {
+    font-size: 12px;
+}
+
+.si__taxi {
+    background-color: var(--color-green);
+    font-size: 12px;
+    color: var(--color-brown);
+    width: max-content;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.si__subtitle {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.si__features {
+    font-size: 12px;
+}
+
+.si__cancel {
+    font-size: 12px;
+    color: var(--color-brown);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.si__rating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.si__rating>span {
+    font-weight: 500;
+}
+
+.si__rating>button {
+    font-weight: bold;
+    background-color: var(--color-green);
+    color: var(--color-brown);
+    padding: 5px;
+    border: none;
+}
+
+.si__detials__text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: right;
+
+}
+.si__price {
+    font-size: 24px;
+}
+
+.si__taxOp {
+    font-size: 12px;
+    color: rgb(47, 102, 112);
+}
+
+.si__check__button {
+    width: 100%;
+    background-color: var(--color-light-green);
+    color: var(--color-nav);
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}

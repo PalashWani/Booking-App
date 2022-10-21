@@ -1,0 +1,20 @@
+:root {
+    --color-nav: #2C3531;
+    --color-green: #116466;
+    --color-brown: #D9B08C;
+    --color-light-brown: #FFCB9A;
+    --color-light-green: #D1E8E2;
+}
+
+.home__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.home__title {
+    width: 1024px;
+    font-size: 20px;
+}
