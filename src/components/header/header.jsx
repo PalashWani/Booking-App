@@ -43,9 +43,9 @@ const handleOption = (name, operation) => {
 }
 const navigate = useNavigate()
 
-// const handleSearch = () => {
-//   navigate("/hotels" , {state: {destination,date,options}});
-// }
+const handleSearch = () => {
+  navigate("/hotels" , {state: {destination,date,options}});
+}
 const handleNav = () => {
   navigate("/");
 }
