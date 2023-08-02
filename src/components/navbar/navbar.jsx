@@ -1,6 +1,8 @@
+// import { AuthContext } from "../../context/AuthContext";
 import "./navbar.css"
 
 const navbar = () => {
+  // const {user} = useContext(AuthContext);
   return (
     <div className="navbar">
         <div className="nav__container">

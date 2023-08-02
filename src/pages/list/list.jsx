@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "./../../components/navbar/navbar";
-import Header from "./../../components/header/header";
+import Navbar from "../../components/navbar/navbar";
+import Header from "../../components/header/Header";
 import SearchItem from "../../components/searchItem/SearchItem";
 import "./list.css";
 import { useLocation } from "react-router-dom";
@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
+import useFetch from "../../hooks/useFetch.js";
 
 const List = () => {
   const location = useLocation();
@@ -15,6 +16,14 @@ const List = () => {
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState(location.state.date);
   const [options, setOptions] = useState(location.state.options);
+  const [min, setMin] = useState(undefined);
+  const [max, setMax] = useState(undefined);
+  const { data, loading, error, reFetch } = useFetch(
+    `/hotels?city=${destination}&min=${min || 0}&max=${max || 99999}`
+  );
+  const handleClick = ()=> {
+    reFetch()
+  }
 
   return (
     <div>
@@ -55,6 +64,7 @@ const List = () => {
                     type="number"
                     placeholder="Price"
                     className="ls__option__input"
+                    onChange={e=> setMin(e.target.value)}
                   />
                 </div>
 
@@ -66,6 +76,7 @@ const List = () => {
                     type="number"
                     placeholder="Price"
                     className="ls__option__input"
+                    onChange={e=>setMax(e.target.value)}
                   />
                 </div>
 
@@ -97,18 +108,18 @@ const List = () => {
                 </div>
               </div>
             </div>
-            <button>Search</button>
+            <button onChange={handleClick}>Search</button>
           </div>
           <div className="list__result">
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            <SearchItem/>
-            
+            {loading ? (
+              "Loading"
+            ) : (
+              <>
+              {data.map(item=>(
+                <SearchItem item={item} key={item._id} />
+                ))}
+              </>
+            )}
           </div>
         </div>
       </div>

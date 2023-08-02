@@ -21,6 +21,7 @@
 
 .pList__titles > h1{
     font-size: 18px;
+    text-transform: capitalize;
 }
 .pList__titles > h2{
     font-size: 14px;
