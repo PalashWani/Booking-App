@@ -13,6 +13,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/searchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 
 const Header = ({type}) => {
@@ -43,6 +44,7 @@ const handleOption = (name, operation) => {
   })
 }
 const navigate = useNavigate()
+const { user } = useContext(AuthContext);
 
 const handleSearch = () => {
   dispatch({type: "NEW_SEARCH", payload: {destination, date, options}});
@@ -82,7 +84,7 @@ const handleNav = () => {
         { type !== "list" &&
           <><h1 className="header__title">Discounts for Life? That's awesome</h1>
         <p className="header__description">get massive discounts on your travels. Book now with GoForIt!</p>
-        <button className="header__button">Sign In / Register</button>
+        {!user && <button className="header__button">Sign In / Register</button>}
         <div className="header__search">
             <div className="header__search__item">
                 <MdHotel className="header__icon"/>
